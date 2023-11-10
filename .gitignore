@@ -1,7 +1,9 @@
 
 /djangoapp/static/
 /djangoapp/media/
+/djangoapp/.vscode/
 /estoque-main/.vscode
+
 # Django #
 *.log
 *.pot
