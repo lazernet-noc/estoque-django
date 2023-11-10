@@ -1,0 +1,31 @@
+{% extends "global/base.html" %}
+
+{% block conteudo %}
+
+<div class="table-responsive">
+    <h1>Lista de Funcionários</h1>
+    <table class="table">
+        <tr>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>Ações</th>
+
+        </tr>
+
+        {% for funcionario in  funcionarios %}
+        <tr>
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.cidade }}</td>
+            <td>
+                <a  class="btn btn-warning"data-toggle="tooltip" title="Editar" href="{% url 'funcionario:update' funcionario.id %}"><i class="fas fa-edit"></i></a>
+                <a  class="btn btn-danger"data-toggle="tooltip"  title="Excluir" href="{% url 'funcionario:delete' funcionario.id %}"><i class="far fa-trash-alt"></i></a>
+
+              </td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+
+{% endblock %}

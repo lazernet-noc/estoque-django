@@ -1,0 +1,48 @@
+{% extends "global/base.html" %}
+
+{% block conteudo %}
+
+<div class="table-responsive">
+    <form action="{% url 'estoque:search' %}" method="GET">
+        <input
+        type="search"
+        class="form-control mr-sm-2"
+        placeholder="Procurar na lista"
+        id="search"
+        name="q"
+        >
+    </form>
+
+
+    <table class="table">
+        <tr>
+            <th class="d-none d-lg-block">Imagem</th>
+            <th>Equipamento</th>
+            <th>Quantidade</th>
+            <th>Atualizado</th>
+            <th>Ações</th>
+
+        </tr>
+
+        {% for estoque in  estoques %}
+        <tr>
+            <td class="d-none d-lg-block">
+                <img class="cart-img" src="{{ estoque.imagem.url }}">
+            </td>
+            <td>{{ estoque.nome }}</td>
+            <td>{{ estoque.quantidade }}</td>
+            <td> {{estoque.atualizado | date:'d/m/Y \à\s H:i'}}  </td>
+            <td>
+                <a  class="btn btn-success"data-toggle="tooltip"  title="Detalhes" href="{% url 'estoque:detail' estoque.id %}"><i class="far fa-eye"></i></a>
+                <a  class="btn btn-warning"data-toggle="tooltip" title="Editar" href="{% url 'estoque:update' estoque.id %}"><i class="fas fa-edit"></i></a>
+                <a  class="btn btn-danger"data-toggle="tooltip"  title="Excluir" href="{% url 'estoque:delete' estoque.id %}"><i class="far fa-trash-alt"></i></a>
+
+              </td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+
+{% endblock %}

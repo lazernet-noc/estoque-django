@@ -1,0 +1,60 @@
+
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <a class="navbar-brand" href="{% url 'estoque:lista' %}"><strong>Lazernet Fibra óptica</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Estoque Geral
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'estoque:lista' %}">Lista de Equipamentos</a>
+                    <a class="dropdown-item" href="{% url 'estoque:create' %}">Cadastrar Novo</a>
+
+                </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Funcionário
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="{% url 'funcionario:lista' %}">Lista de Funcionários</a>
+                    <a class="dropdown-item" href="{% url 'funcionario:create' %}">Cadastrar Novo</a>
+
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Requisição
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="{% url 'funcionario:lista' %}">Lista de Saidas</a>
+                    <a class="dropdown-item" href="{% url 'requisicao:estoque_entrada_add' %}">Cadastrar Nova</a>
+
+                </div>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-cart-link active" href="#">
+                    <span class="nav-cart-text mr-1">
+                        Saida
+                    </span>
+                    <span class="nav-cart-count mr-1">
+                        <strong></strong>
+                    </span>
+                    <span class="nav-cart-icon mr-2">
+                        <i class="fas fa-file-export"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

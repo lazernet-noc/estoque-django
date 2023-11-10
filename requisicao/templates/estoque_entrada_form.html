@@ -1,0 +1,74 @@
+{% extends 'global/base.html' %}
+
+
+{% block conteudo %}
+
+<h1>Requisição </h1>
+
+
+        <form method="POST" novalidate>
+            {% csrf_token %}
+
+    
+            <legend style="border-bottom: 1px solid #e5e5e5;">Saida de Equipamentos</legend>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="form-group">
+                        <label for="{{ form2.equipamento.id_for_label }}" class="col-6"><strong>{{ form.funcionario.label }}</strong></label>
+                        {{ form.funcionario}}
+                     
+                        <label for="{{ form2.quantidade.id_for_label }}"class="col-6"><strong>{{ form.observacao.label }}</strong></label>
+                        {{ form.observacao }}
+                    </div>
+              
+                </div>
+                {{ formset.management_form}}
+            </div>
+
+
+            <div id="estoque" class="form-group ">
+   
+                {% for item_requicao_form in formset %}
+                <div id="item-{{ forloop.counter0 }}"class="form-group" >
+                    {{ item_requicao_form }}
+                </div>
+                {% endfor %}  
+            </div>
+
+            <span id="add-item" class="btn btn-info" style="margin-bottom: 10px;">
+                <i class="fa fa-plus"></i> Adicionar
+              </span>
+
+              <div class="form-content">
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">Cadastrar</button>
+                </div>
+              </div>
+    </form>
+
+
+{% endblock conteudo %}
+
+{% block js %}
+
+<script>
+    $(document).ready(fuction() {
+        $('#add-item').click(function(ev) {
+            ev.preventDefault();
+            var count = $('#estoque').children().length;
+            var tmplMarkup = $('#item-estoque').html();
+            var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+            $('div#estoque').append(compiledTmpl);
+
+            $('#id_estoque-TOTAL_FORMS').attr('value', count + 1);
+       });
+    });      
+</script>
+
+<script type="text/html" id="item-estoque">
+    <div id="item-__prefix__" class="form-group">
+    {{ formset.empty_form }}
+    </div>
+  </script>
+
+{% endblock js %}

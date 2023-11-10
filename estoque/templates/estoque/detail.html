@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+
+{% block conteudo %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="form-wrapper">
+                <h1 >
+                {{ estoque.nome}} 
+                </h1>
+
+                <p><b>Quantidade</b> {{ estoque.quantidade }}</p>
+                <p><b>Tipo:</b> {{ estoque.tipo }}</p>
+                <p><b>Cadastrado :</b> {{ estoque.cadastrado }}</p>
+                <p><b>Cadastrado por:</b> {{ estoque.cadastrado_por }}</p>
+                <p><b>Atualizado:</b> {{ estoque.atualizado }}</p>
+                <p><b>Atualizado por:</b> {{ estoque.atualizado_por }}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-wrapper">
+                {% if estoque.imagem %}
+                <p>
+                <img src='{{ estoque.imagem.url }}'>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary btn-lg btn-block" href="{% url 'estoque:lista' %}">Voltar</a>
+</div>    
+{% endblock conteudo %}
