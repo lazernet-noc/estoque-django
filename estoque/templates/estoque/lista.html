@@ -27,7 +27,9 @@
         {% for estoque in  estoques %}
         <tr>
             <td class="d-none d-lg-block">
-                <img class="cart-img" src="{{ estoque.imagem.url }}">
+                {% if estoque.imagem %}
+                    <img class="cart-img" src="{{ estoque.imagem.url }}">
+                {% endif %}
             </td>
             <td>{{ estoque.nome }}</td>
             <td>{{ estoque.quantidade }}</td>
