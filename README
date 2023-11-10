@@ -1,9 +1,16 @@
-Iniciar o projeto Django
+Este projeto foi feito com:
+Python 3.11.5
+Django 4.2.6
 
-```
-python -m venv venv
-. venv/bin/activate
-pip install django
-django-admin startproject project .
-python manage.py startapp contact
-```
+Para rodar o projeto?
+Clone esse repositório.
+Crie um virtualenv com Python 3.
+Ative o virtualenv.
+Instale as dependências.
+Rode as migrações.
+
+git clone https://github.com/lazernet-noc/estoque-django.git
+cd estoque-django
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
