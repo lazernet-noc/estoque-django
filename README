@@ -1,16 +1,25 @@
 Este projeto foi feito com:
-Python 3.11.5
-Django 4.2.6
 
-Para rodar o projeto?
-Clone esse repositório.
-Crie um virtualenv com Python 3.
-Ative o virtualenv.
-Instale as dependências.
-Rode as migrações.
+* Python 3.11.5
+* Django 4.2.6
 
+Para rodar o projeto
+
+* Clone esse repositório.
+* Crie um virtualenv com Python 3.
+* Ative o virtualenv.
+* Instale as dependências.
+* Rode as migrações.
+
+```
 git clone https://github.com/lazernet-noc/estoque-django.git
 cd estoque-django
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+
